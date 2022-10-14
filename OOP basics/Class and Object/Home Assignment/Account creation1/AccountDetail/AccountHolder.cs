@@ -1,0 +1,89 @@
+using System;
+namespace AccountDetail
+{
+    public enum Gender{Default,Male,Female,Transgender}
+    public enum AccounType{Default,SD,FD,RD}
+    public class AccountHolder
+    {
+        private static int s_accountnumber=5000;
+
+        public string AccountNumber { get;}
+        
+        
+        public string Name { get; set; }
+
+        public string FatherName { get; set; }
+
+        public Gender Gender { get; set; }
+
+        public DateTime DOB { get; set; }
+
+        public AccounType AccountType { get; set; }
+
+        public double Balance { get; set; }
+
+        // parametrized constructor
+        public AccountHolder(string name,string fathername,Gender gender,DateTime dob,AccounType accounttype)
+        {
+            s_accountnumber++;
+            AccountNumber="HDFC"+s_accountnumber;
+            Name=name;
+            FatherName=fathername;
+            Gender=gender;
+            DOB=dob;
+            AccountType=accounttype;
+        }
+        //method
+        public void Deposit()
+        {
+            
+            System.Console.WriteLine("Enter the amount to deposit:");
+            double depositamount=double.Parse(Console.ReadLine());
+            Balance+=depositamount;
+            System.Console.WriteLine("Deposited amount:"+Balance);
+        }
+        public void Withdraw()
+        {
+            System.Console.WriteLine("Enter the amount to withdraw:");
+            double withdrawAmount=double.Parse(Console.ReadLine());
+            Balance-=withdrawAmount;
+            System.Console.WriteLine("Balance amount:"+Balance);
+        }
+        public void Show()
+        {
+            System.Console.WriteLine("Balance:"+Balance);
+        }
+
+        public  void ShowDetail()
+        {
+            System.Console.WriteLine("\nAccount Holder details\n");
+            System.Console.WriteLine($"Account Number: {AccountNumber}");
+
+            System.Console.WriteLine($"Account Holder name:{Name}");
+            System.Console.WriteLine($"Account Holder Father name: {FatherName}");
+            System.Console.WriteLine($"Gender: {Gender}");
+            System.Console.WriteLine($"Date of Birth: {DOB}");
+            System.Console.WriteLine($"Account Type: {AccountType}");
+            System.Console.WriteLine($"Balance: {Balance}");
+        }
+            
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
